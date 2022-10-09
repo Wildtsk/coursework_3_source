@@ -30,3 +30,6 @@ class BaseDAO(Generic[T]):
             except NotFound:
                 return []
         return stmt.all()
+
+    def get_all_order_by(self, page: int, filter: Optional[str]):
+        ...
