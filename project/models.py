@@ -21,9 +21,9 @@ class Movie(db.Model):
     trailer = db.Column(db.String(255), unique=True, nullable=False)
     year = db.Column(db.Integer, unique=True, nullable=False)
     rating = db.Column(db.Float, unique=True, nullable=False)
-    genre_id = db.Column(db.Integer, db.ForeignKey(f"{Genre.__tablename__}.id"), nullable=False)
+    genre_id = db.Column(db.Integer, db.ForeignKey(f"{Genre.__tablename__}.id"))
     genre = db.relationship("Genre")
-    director_id = db.Column(db.Integer, db.ForeignKey(f"{Director.__tablename__}.id"), nullable=False)
+    director_id = db.Column(db.Integer, db.ForeignKey(f"{Director.__tablename__}.id"))
     director = db.relationship("Director")
 
 
@@ -34,5 +34,5 @@ class User(db.Model):
     password = db.Column(db.String, unique=True, nullable=False)
     name = db.Column(db.String)
     surname = db.Column(db.String)
-    favorite_genre = db.Column(db.Integer, db.ForeignKey(f"{Genre.__tablename__}.id"), nullable=False)
+    favorite_genre = db.Column(db.Integer, db.ForeignKey(f"{Genre.__tablename__}.id"))
     genre = db.relationship("Genre")

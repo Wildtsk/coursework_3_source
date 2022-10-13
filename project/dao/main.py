@@ -43,6 +43,7 @@ class UsersDAO(BaseDAO[User]):
             )
             self._db_session.commit()
             print("Пользователь создан")
+            return 'Создан'
         except Exception as e:
             print(e)
             self._db_session.rollback()
