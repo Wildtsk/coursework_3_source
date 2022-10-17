@@ -24,9 +24,13 @@ if __name__ == '__main__':
     with app.app_context():
         # TODO: [fixtures] Добавить модели Directors и Movies
         load_data(fixtures['genres'], Genre)
+        db.session.commit()
         load_data(fixtures['directors'], Director)
+        db.session.commit()
         load_data(fixtures['movies'], Movie)
+        db.session.commit()
 
 
-        with suppress(IntegrityError):
-            db.session.commit()
+
+        # with suppress(IntegrityError):
+        #     db.session.commit()
